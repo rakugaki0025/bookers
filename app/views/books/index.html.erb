@@ -1,0 +1,29 @@
+<h1>Bookes</h1>
+ <p>Title</p>
+ <p>Body</p>
+
+ <table>
+    <p>リーダブルコード</p>
+      <a class="" href="/books/show">show</a></br>
+      <a class="" href="/books/show">Edit</a>
+       <p>Destroy</p>
+       
+    <p>トラブル知らずのシステム設計</p>
+    <p>たのしいRuby</p>
+    <p>入門Git</p>
+    <p>アルゴリズム図鑑</p>
+    <p>達人プログラマー</p>
+    <p>データベース実線入門</p>
+ </table>
+<h2>New book</h2>
+
+<%= form_with model: @books do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+	
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+	
+  <%= f.submit 'Create Book' %>
+  
+<% end %>
