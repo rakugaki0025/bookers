@@ -20,6 +20,13 @@ class BooksController < ApplicationController
         # 遷移する先
   end
   
+  def show
+    @books = Book.all
+  end
+    
+  def edit
+  end
+  
   
   private
         # ストロングパラメータ

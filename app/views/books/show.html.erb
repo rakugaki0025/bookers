@@ -1,1 +1,15 @@
 <h1>show#top</h1>
+
+<h1>投稿一覧</h1>
+
+<% @books.each do |book| %>
+
+  <p>Title:</p>
+  <span><%= book.title %></span>
+  
+  
+  
+<% end %>
+
+<a class="" href="/books/show/edit">edit</a></br>
+<a class="" href="/books">back</a>
