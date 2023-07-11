@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   
   private
         # ストロングパラメータ
-        # ここから下に記述することでメソッドの呼び出しに制限
+        # ここから下はこのcontrollerの中でしか呼び出せません
   def book_params
         # モデル名と一緒
     params.require(:book).permit(:title, :body)
