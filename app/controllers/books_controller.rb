@@ -3,9 +3,10 @@ class BooksController < ApplicationController
   end
   
   def index
-    @books = Book.new
+    @book = Book.new
         # インスタンス変数 = モデル名 空オブジェクト 新規作成
         # 左の箱に右を格納
+    @books = Book.all 
   end
   
   def create
@@ -16,12 +17,13 @@ class BooksController < ApplicationController
         # ローカル変数 = モデル名.newと一緒
       book.save
         # saveメソッド
-      redirect_to '/books/show'
+      # redirect_to '/books/show'
+      redirect_to book_path(book.id)
         # 遷移する先
   end
   
   def show
-    @books = Book.all
+    @book = Book.find(params[:id]) 
   end
     
   def edit
