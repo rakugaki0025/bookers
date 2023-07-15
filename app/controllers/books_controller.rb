@@ -17,13 +17,14 @@ class BooksController < ApplicationController
         # ローカル変数 = モデル名.newと一緒
       book.save
         # saveメソッド
-      # redirect_to '/books/show'
+        # redirect_to '/books/show'
       redirect_to book_path(book.id)
         # 遷移する先
   end
   
   def show
-    @book = Book.find(params[:id]) 
+    @book = Book.find(params[:id])
+     # @book = Book.find(params[:投稿ページ])
   end
     
   def edit
