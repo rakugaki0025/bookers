@@ -1,27 +1,21 @@
 <h1>Bookes</h1>
- <p>Title</p>
- <p>Body</p>
- 
 
-
-<!--<table>-->
-<!--    <p>リーダブルコード</p>-->
-<!--      <a class="" href="/books/show">show</a></br>-->
-<!--      <a class="" href="/books/show/edit">edit</a></br>-->
-<!--       <p>Destroy</p>-->
-
-<!-- </table>-->
-   
-<h1>投稿一覧</h1>
 
   <% @books.each do |book| %>
   
   <p>Title:</p>
     <span><%= book.title %></span>
-  
+      <%= link_to "show", book_path(book.id) %>
+      <%= link_to "edit", edit_book_path(book.id) %>
+      <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      
   <p>Body</p>
     <span><%= book.body %></span>
+      <%= link_to "show", book_path(book.id) %>
+      <%= link_to "edit", edit_book_path(book.id) %>
+      <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 
+      
 <% end %>   
    
 <h2>New book</h2>
