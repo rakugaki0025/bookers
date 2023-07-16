@@ -1,33 +1,55 @@
 <h1>Bookes</h1>
 
-
-  <% @books.each do |book| %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
   
-  <p>Title:</p>
-    <span><%= book.title %></span>
-      <%= link_to "show", book_path(book.id) %>
-      <%= link_to "edit", edit_book_path(book.id) %>
-      <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <tbody>
+    <% @books.each do |book| %>
+  
+    <p>Title:</p>
+      <span><%= book.title %></span><br>
+        <%= link_to "show", book_path(book.id) %><br>
+        <%= link_to "edit", edit_book_path(book.id) %><br>
+        <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %><br>
       
-  <p>Body</p>
-    <span><%= book.body %></span>
-      <%= link_to "show", book_path(book.id) %>
-      <%= link_to "edit", edit_book_path(book.id) %>
-      <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <p>Body</p>
+      <span><%= book.body %></span><br>
+        <%= link_to "show", book_path(book.id) %><br>
+        <%= link_to "edit", edit_book_path(book.id) %><br>
+        <%= link_to "delete", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %><br>
+        
+　  <% end %>   
+　</tbody>
+</table>
 
-      
-<% end %>   
    
 <h2>New book</h2>
-
-<%= form_with model: @book do |f| %>
-
- <h4>Title</h4>
-  <%= f.text_field :title %>
-	
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
- 
+  
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
+  
+  
+  
+  <%= form_with model: @book do |f| %>
+  
+    <h4>Title</h4>
+      <%= f.text_field :title %>
+    
+    <h4>Body</h4>
+      <%= f.text_area :body %>
+    
+      <%= f.submit 'Create Book' %>
+    
+  <% end %>
