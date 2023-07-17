@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
   def top
+      @book = Book.new
+      
+       redirect_to book_path(@book)
+        # これは居るか？
   end
   
   def index
@@ -27,7 +31,7 @@ class BooksController < ApplicationController
          @books = Book.all
          render :index
            # アクションを実行しない
-    end
+      end
   end
 
   def destroy
