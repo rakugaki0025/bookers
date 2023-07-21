@@ -1,9 +1,6 @@
 class BooksController < ApplicationController
   def top
-      @book = Book.new
-      
-       redirect_to book_path(@book)
-        # これは居るか？
+      @bookers = Book.new
   end
   
   def index
@@ -23,7 +20,7 @@ class BooksController < ApplicationController
         
       if @book.save
            # saveメソッド
-         flash[:notice] = "投稿が成功しました"
+         flash[:notice] = "Book was successfully created."
            # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
          redirect_to book_path(@book.id)
            # アクションを実行する
@@ -49,11 +46,15 @@ class BooksController < ApplicationController
   def show
       @book = Book.find(params[:id])
         # @book = Book.find(params[:投稿ページ])
+      @bookers = Book.new
+      
   end
     
     
   def edit
       @book = Book.find(params[:id])
+       # 
+      @bookers = Book.new
   end  # 
      
      
@@ -64,7 +65,7 @@ class BooksController < ApplicationController
                 
       if @book.update(book_params)
            # saveメソッド
-         flash[:notice] = "ブックは正常に更新されました。"
+         flash[:notice] = "Book was successfully updated."
            # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
          redirect_to book_path(@book.id)
            # アクションを実行する
